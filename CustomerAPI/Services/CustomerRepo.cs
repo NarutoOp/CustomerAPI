@@ -8,19 +8,20 @@ namespace CustomerAPI.Services
 {
     public class CustomerRepo : IRepo<Customer>
     {
-        private readonly CustomerContext _context;
+        
+        private static List<Customer> customers = new List<Customer>() {
+            new Customer { Name="Ramu", Age =  22 },
+            new Customer { Name="Samu", Age =  21 }
+        };
 
-        public CustomerRepo() { }
-        public CustomerRepo(CustomerContext context) {
-            _context = context;
-        }
+        
 
         public bool Add(Customer t)
         {
             try
             {
-                _context.Customers.Add(t);
-                _context.SaveChanges();
+                customers.Add(t);
+                
                 return true;
             }
             catch(Exception)
@@ -31,7 +32,7 @@ namespace CustomerAPI.Services
 
         public List<Customer> GetAll()
         {
-            List<Customer> customers = _context.Customers.ToList();
+            
             if (customers.Count == 0)
                 return null;
             return customers;

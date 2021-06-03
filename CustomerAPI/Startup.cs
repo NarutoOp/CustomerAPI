@@ -28,7 +28,7 @@ namespace CustomerAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<CustomerContext>(opts => opts.UseSqlServer(Configuration["ConnectionString:conn"]));
+            
             services.AddScoped<IRepo<Customer>, CustomerRepo>();
         }
 
