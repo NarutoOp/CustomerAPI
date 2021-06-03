@@ -10,8 +10,8 @@ namespace CustomerAPI.Services
     {
         
         private static List<Customer> customers = new List<Customer>() {
-            new Customer { Name="Ramu", Age =  22 },
-            new Customer { Name="Samu", Age =  21 }
+            new Customer { Id = 1, Name="Ramu", Age =  22 },
+            new Customer { Id = 2, Name="Samu", Age =  21 }
         };
 
         
